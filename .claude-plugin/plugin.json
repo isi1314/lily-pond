@@ -1,6 +1,6 @@
 {
   "name": "lily-pond",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Glowster's Gallery look for the Claude desktop and mobile apps: paper by day, night ink by night, and La Farge's Water Lily in Sunlight behind the conversation.",
   "license": "MIT",
   "keywords": [
@@ -11,5 +11,8 @@
   ],
   "author": {
     "name": "Andria Labs LLC"
-  }
+  },
+  "displayName": "Lily Pond",
+  "homepage": "https://github.com/isi1314/lily-pond",
+  "repository": "https://github.com/isi1314/lily-pond"
 }
