@@ -36,6 +36,6 @@ export const register: Register = on => {
     }
     const { Svg } = $.ui.resolve(e)
 
-    return <Svg source={SCENE} alt="A still pond with lily pads drifting and a few water lilies in bloom" isInteractive />
+    return <Svg source={SCENE} alt="John La Farge's watercolor Water Lily in Sunlight, slowly drifting, with light moving across the pond" isInteractive />
   })
 }

@@ -7,9 +7,10 @@ import { SCENE } from '../hooks/scene'
 test('the scene fits the backdrop limit and runs no script', () => {
   expect(SCENE.length).toBeLessThan(131072)
   expect(SCENE.includes('<script')).toBe(false)
-  // The water fills any box; the three corner groups pin to the screen's corners.
+  // The painting fills any box, embedded so the scene loads nothing from the network.
   expect(SCENE.includes('preserveAspectRatio="xMidYMid slice"')).toBe(true)
-  for (const corner of ['xMinYMin meet', 'xMaxYMin meet', 'xMinYMax meet']) expect(SCENE.includes(corner)).toBe(true)
+  expect(SCENE.includes('href="data:image/jpeg;base64,')).toBe(true)
+  expect(/href="https?:/.test(SCENE)).toBe(false)
 })
 
 test('Desktop paints the colors, and every key is a design-system name', async ($, on) => {

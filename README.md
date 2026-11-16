@@ -1,13 +1,13 @@
 # Lily Pond
 
-A calm pond look for the Claude desktop and mobile apps. Green-gray paper by day, a lamp-lit pond by night, and behind the conversation a jade pond where lily pads drift slowly, two koi glide around the edge beneath them, a few water lilies breathe, and ripples and bubbles rise now and then.
+Glowster's Gallery look for the Claude desktop and mobile apps. Warm paper by day, night ink by night, one vermilion accent, and behind the conversation John La Farge's watercolor *Water Lily in Sunlight* (ca. 1883), drifting slowly while bands of sunlight cross the water and ripples spread from the lily.
 
 ![Lily Pond icon](.claude-plugin/icon.png)
 
 ## What it does
 
-- **Colors, both modes.** Surfaces, text and accents are tinted from one pond green. Text keeps strong contrast on every surface; red still means danger, green success and amber warning.
-- **A moving backdrop.** The pads, blooms and koi stay near the edges, pinned so a tall phone and a wide window both keep them in view, while the middle (where you read) and the foot (where you type) stay open water. Panels are frosted over it so text stays easy to read.
+- **Colors, both modes.** Surfaces, text and accents come from the palette of the [Glowster](https://glowster.app) app: paper and ink with a vermilion accent. Text keeps strong contrast on every surface; red still means danger, green success and amber warning.
+- **A moving backdrop.** The painting fills the window from a tall phone to a wide screen, with a slow push-in and light moving across the pond. Panels are frosted over it so text stays easy to read.
 - **Gentle motion.** Everything moves slowly with CSS only, and stops completely when your system asks for reduced motion.
 
 The terminal and editor extensions draw no themes, so there the mod does nothing.
@@ -32,10 +32,10 @@ In the desktop app, where `/plugin` does not run: click + next to the prompt box
 
 Start a new session in the Claude desktop or mobile app and the pond appears. To go back to the app's own look for the rest of a session, run `/plain-pond`; to stop it for good, disable or uninstall the plugin.
 
-## Notes
+## The painting
 
-The art is original: simple shapes drawn for this mod, not taken from any painting or product. No network, no scripts, no data read or sent.
+John La Farge, *Water Lily in Sunlight*, ca. 1883, watercolor. Smithsonian American Art Museum, gift of John Gellatly (1929.6.70). Public domain (CC0). An 800 px copy travels inside the theme, so nothing is loaded from the network. No scripts, no data read or sent.
 
 ## License
 
-MIT, see [LICENSE](LICENSE).
+The code is MIT, see [LICENSE](LICENSE). The painting is public domain.
