@@ -1,0 +1,13 @@
+{
+  "name": "lily-pond",
+  "description": "Lily Pond, a calm pond look for the Claude desktop and mobile apps.",
+  "owner": {
+    "name": "Andria Labs LLC"
+  },
+  "plugins": [
+    {
+      "name": "lily-pond",
+      "source": "./"
+    }
+  ]
+}
