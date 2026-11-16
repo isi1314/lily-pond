@@ -30,3 +30,19 @@ test('Desktop paints the colors, and every key is a design-system name', async (
 test('no contrast line stops Desktop from painting', () => {
   expect(problems.filter(p => p.startsWith("Desktop won't paint"))).toEqual([])
 })
+
+test('draws only its own scene, and /plain-pond takes the look off', async ($, on) => {
+  let cleared = false
+  on('theme.set', () => ({ value: { isDrawn: true as const, requestId: 't' } }))
+  on('theme.clear', () => {
+    cleared = true
+    return { value: { isDrawn: true as const, requestId: 't' } }
+  })
+  on('command.register', () => ({ value: { command: 'plain-pond' } }))
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+  on('command.run', () => ({ text: '' }))
+  await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
+  const result = await $.command.run({ command: 'plain-pond', args: '' })
+  expect(cleared).toBe(true)
+  expect(result.text).toContain('Lily Pond is off')
+})

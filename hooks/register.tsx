@@ -15,11 +15,22 @@ export const register: Register = on => {
     if (!set.isDrawn) {
       $.ui.status(`Lily Pond: ${set.reason}`)
     }
+    await $.command.register({ name: 'plain-pond', description: "Take the Lily Pond look off and return to the app's own" })
 
     return next(e)
   })
 
+  // Only when the person asks: clear() removes any mod's theme, not just this one.
+  on('command.run', { command: 'plain-pond' }, async $ => {
+    await $.theme.clear()
+    return { text: "Lily Pond is off: the app's own look is back. Start a new session to bring the pond back." }
+  })
+
   on('ui.render', { component: 'Backdrop' }, ($, e, next) => {
+    // This hook runs for every mod's backdrop: draw only our own scene, and only where scenes draw.
+    if (e.props.plugin !== $.plugin.name || e.props.scene !== 'pond') {
+      return next(e)
+    }
     if (e.surface !== 'desktop' && e.surface !== 'mobile') {
       return next(e)
     }

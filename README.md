@@ -30,7 +30,7 @@ claude plugin install lily-pond --marketplace isi1314/lily-pond
 
 In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `isi1314/lily-pond`, then Add plugin.
 
-Start a new session in the Claude desktop or mobile app and the pond appears. To go back to the app's own look, disable or uninstall the plugin.
+Start a new session in the Claude desktop or mobile app and the pond appears. To go back to the app's own look for the rest of a session, run `/plain-pond`; to stop it for good, disable or uninstall the plugin.
 
 ## Notes
 
