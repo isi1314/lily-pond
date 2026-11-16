@@ -1,13 +1,14 @@
 # Lily Pond
 
-Glowster's Gallery look for the Claude desktop and mobile apps. Warm paper by day, night ink by night, one vermilion accent, and behind the conversation John La Farge's watercolor *Water Lily in Sunlight* (ca. 1883), hung on a night-ink wall with a mat and hairline frame, shown just below its native size so it stays sharp.
+Glowster's Gallery look for the Claude desktop and mobile apps. Warm paper by day, night ink by night, one vermilion accent, and behind the conversation John La Farge's watercolor *Water Lily in Sunlight* (ca. 1883), hung on a night-ink wall with a mat and hairline frame at or near its own size, so it stays sharp, while gallery light breathes on the wall and sunlight drifts across its water.
 
 ![Lily Pond icon](.claude-plugin/icon.png)
 
 ## What it does
 
 - **Colors, both modes.** Surfaces, text and accents come from the palette of the [Glowster](https://glowster.app) app: paper and ink with a vermilion accent. Text keeps strong contrast on every surface; red still means danger, green success and amber warning.
-- **The painting behind the conversation.** Hung like a museum piece on Glowster's night ink, centered, never stretched past its own resolution, so it stays sharp on large and retina screens. It is still, as a painting on a wall is.
+- **The painting behind the conversation.** Hung like a museum piece on Glowster's night ink, centered, never stretched far past its own resolution, so it stays sharp. Panels are frosted over it so the words come first.
+- **Gentle motion.** A pool of gallery light breathes on the wall and soft sunlight drifts across the painting's water, CSS only, and everything stops when your system asks for reduced motion.
 
 The terminal and editor extensions draw no themes, so there the mod does nothing.
 
@@ -33,7 +34,7 @@ Start a new session in the Claude desktop or mobile app and the pond appears. To
 
 ## The painting
 
-John La Farge, *Water Lily in Sunlight*, ca. 1883, watercolor. Smithsonian American Art Museum, Gift of John Gellatly, 1929.6.70. Public domain (CC0). The hung painting (`assets/painting.jpg`, 3840 by 2400, under 1 MB) ships with the theme, so nothing is loaded from the network. No scripts, no data read or sent.
+John La Farge, *Water Lily in Sunlight*, ca. 1883, watercolor. Smithsonian American Art Museum, Gift of John Gellatly, 1929.6.70. Public domain (CC0). A 1600 px copy (AVIF) travels inside the theme, so nothing is loaded from the network. No scripts, no data read or sent.
 
 ## License
 

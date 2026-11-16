@@ -35,8 +35,7 @@ export const { theme, problems } = makeColors({
 
 export const LOOK: ThemeSetArgs = {
   colors: theme,
-  // The painting hung on a night-ink wall at just below its native size, baked into one 3840 by 2400
-  // picture: stretched full-bleed, the 2553 px scan read as a low-resolution photo. John La Farge, Water Lily in Sunlight, ca. 1883,
-  // Smithsonian American Art Museum, Gift of John Gellatly, 1929.6.70, CC0.
-  backdrop: { image: { source: 'assets/painting.jpg' } },
+  // A moving scene (hooks/scene.ts): the painting hung on night ink, with light and ripples.
+  // Ink- or paper-tinted frost over it so the words stay first.
+  backdrop: { scene: 'pond', glass: { blur: 22, opacity: 0.78 } },
 }
