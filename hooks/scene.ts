@@ -29,6 +29,21 @@ const bloom = (x: number, y: number, s: number) =>
 const ripple = (x: number, y: number, delay: number) =>
   `<circle class="ripple" style="animation-delay:${delay}s" cx="${x}" cy="${y}" r="40" fill="none" stroke="#eef3ea" stroke-width="2"/>`
 
+
+// A koi seen from above, nose toward +x, about 110 units long. The tail sways on its own group.
+const koi = (body: string, patch: string, fin: string) =>
+  `<path d="M-46 0C-30 -15 16 -17 41 -4C47 -1 47 1 41 4C16 17 -30 15 -46 0Z" fill="${body}"/>` +
+  `<path d="M6 -12C22 -12 33 -7 39 -3C31 0 19 2 8 -2Z" fill="${patch}"/>` +
+  `<ellipse cx="-14" cy="-2" rx="13" ry="6.5" fill="${patch}"/>` +
+  `<path d="M12 7L0 20L-5 8Z M12 -7L0 -20L-5 -8Z" fill="${fin}" fill-opacity=".85"/>` +
+  `<g class="tail"><path d="M-44 0L-70 -15Q-62 0 -70 15Z" fill="${fin}"/></g>`
+
+const bubble = (x: number, y: number, r: number, delay: number) =>
+  `<circle class="bubble" style="animation-delay:${delay}s" cx="${x}" cy="${y}" r="${r}" fill="#f2f7f0" fill-opacity=".55" stroke="#f2f7f0" stroke-opacity=".8" stroke-width="1"/>`
+
+// The koi keep to the pond's edge (the second swims the loop backwards, nose first via offset-rotate: reverse), under the corner pads, never across the middle where the words sit.
+const LOOP = 'M250 150C700 60 1100 90 1400 170C1520 300 1500 700 1380 850C1000 950 600 950 260 860C120 700 110 330 250 150Z'
+
 export const SCENE = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 <style>
 .drift-a{animation:drift-a 46s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
@@ -41,11 +56,18 @@ export const SCENE = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" heigh
 @keyframes breathe{from{transform:scale(1)}to{transform:scale(1.04)}}
 @keyframes ripple{0%{transform:scale(.2);opacity:.55}100%{transform:scale(2.6);opacity:0}}
 @keyframes shimmer{from{opacity:.35}to{opacity:.7}}
-@media (prefers-reduced-motion:reduce){.drift-a,.drift-b,.bloom,.ripple,.shimmer{animation:none}.ripple{opacity:0}}
+.swim{offset-path:path('${LOOP}');offset-rotate:auto;animation:swim 90s linear infinite}
+.swim-b{animation-duration:120s;animation-direction:reverse;animation-delay:-50s;offset-rotate:reverse}
+.tail{animation:sway 1.6s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:right center}
+.bubble{animation:rise 11s ease-out infinite;opacity:0}
+@keyframes swim{from{offset-distance:0%}to{offset-distance:100%}}
+@keyframes sway{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
+@keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-70px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.drift-a,.drift-b,.bloom,.ripple,.shimmer,.swim,.tail,.bubble{animation:none}.ripple,.bubble{opacity:0}.swim{offset-distance:12%}.swim-b{offset-distance:62%}}
 </style>
 <defs>
 <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#8fa99a"/><stop offset=".55" stop-color="#6d8b7c"/><stop offset="1" stop-color="#4c6a5c"/>
+<stop offset="0" stop-color="#88ad9c"/><stop offset=".55" stop-color="#628f7e"/><stop offset="1" stop-color="#41695b"/>
 </linearGradient>
 <radialGradient id="light" cx=".5" cy=".5" r=".5">
 <stop offset="0" stop-color="#e8efe0" stop-opacity=".55"/><stop offset="1" stop-color="#e8efe0" stop-opacity="0"/>
@@ -62,6 +84,9 @@ export const SCENE = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" heigh
 </g>
 <ellipse cx="900" cy="900" rx="700" ry="220" fill="url(#deep)"/>
 <ellipse cx="200" cy="600" rx="380" ry="200" fill="url(#deep)"/>
+<g class="swim"><g transform="scale(1.35)">${koi('#f3f0e8', '#dd6a3c', '#f1ddcf')}</g></g>
+<g class="swim swim-b"><g transform="scale(1.2)">${koi('#e9a23b', '#f5e6c8', '#f0c98a')}</g></g>
+${bubble(330, 330, 5, 0)}${bubble(352, 345, 3, 4)}${bubble(1280, 300, 4, 2)}${bubble(1300, 315, 6, 7)}${bubble(300, 760, 4, 5)}${bubble(1260, 790, 5, 9)}
 </svg>
 <svg viewBox="0 0 1100 900" preserveAspectRatio="xMinYMin meet" width="100%" height="100%">
 <g class="drift-a">${pad(110, 90, 1.5, -20, '#4f7d4a')}${pad(250, 70, 0.9, 140, '#5d8a52')}</g>

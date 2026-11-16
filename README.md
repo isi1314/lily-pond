@@ -1,13 +1,13 @@
 # Lily Pond
 
-A calm pond look for the Claude desktop and mobile apps. Green-gray paper by day, a lamp-lit pond by night, and behind the conversation a still pond where lily pads drift slowly, a few water lilies breathe, and ripples spread now and then.
+A calm pond look for the Claude desktop and mobile apps. Green-gray paper by day, a lamp-lit pond by night, and behind the conversation a jade pond where lily pads drift slowly, two koi glide around the edge beneath them, a few water lilies breathe, and ripples and bubbles rise now and then.
 
 ![Lily Pond icon](.claude-plugin/icon.png)
 
 ## What it does
 
 - **Colors, both modes.** Surfaces, text and accents are tinted from one pond green. Text keeps strong contrast on every surface; red still means danger, green success and amber warning.
-- **A moving backdrop.** The pads and blooms stay in the corners, pinned so a tall phone and a wide window both keep them in view, while the middle (where you read) and the foot (where you type) stay open water. Panels are frosted over it so text stays easy to read.
+- **A moving backdrop.** The pads, blooms and koi stay near the edges, pinned so a tall phone and a wide window both keep them in view, while the middle (where you read) and the foot (where you type) stay open water. Panels are frosted over it so text stays easy to read.
 - **Gentle motion.** Everything moves slowly with CSS only, and stops completely when your system asks for reduced motion.
 
 The terminal and editor extensions draw no themes, so there the mod does nothing.
