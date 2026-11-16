@@ -35,8 +35,8 @@ export const { theme, problems } = makeColors({
 
 export const LOOK: ThemeSetArgs = {
   colors: theme,
-  // The painting at the museum file's full 2553 px (a moving scene is capped at 131,072 characters,
-  // too small for a sharp full-screen painting). John La Farge, Water Lily in Sunlight, ca. 1883,
+  // The painting hung on a night-ink wall at just below its native size, baked into one 3840 by 2400
+  // picture: stretched full-bleed, the 2553 px scan read as a low-resolution photo. John La Farge, Water Lily in Sunlight, ca. 1883,
   // Smithsonian American Art Museum, Gift of John Gellatly, 1929.6.70, CC0.
   backdrop: { image: { source: 'assets/painting.jpg' } },
 }
