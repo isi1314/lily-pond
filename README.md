@@ -1,14 +1,13 @@
 # Lily Pond
 
-Glowster's Gallery look for the Claude desktop and mobile apps. Warm paper by day, night ink by night, one vermilion accent, and behind the conversation John La Farge's watercolor *Water Lily in Sunlight* (ca. 1883), drifting slowly while bands of sunlight cross the water and ripples spread from the lily.
+Glowster's Gallery look for the Claude desktop and mobile apps. Warm paper by day, night ink by night, one vermilion accent, and behind the conversation John La Farge's watercolor *Water Lily in Sunlight* (ca. 1883), hung full screen at the museum file's full resolution.
 
 ![Lily Pond icon](.claude-plugin/icon.png)
 
 ## What it does
 
 - **Colors, both modes.** Surfaces, text and accents come from the palette of the [Glowster](https://glowster.app) app: paper and ink with a vermilion accent. Text keeps strong contrast on every surface; red still means danger, green success and amber warning.
-- **A moving backdrop.** The painting fills the window from a tall phone to a wide screen, with a slow push-in and light moving across the pond. Panels are frosted over it so text stays easy to read.
-- **Gentle motion.** Everything moves slowly with CSS only, and stops completely when your system asks for reduced motion.
+- **The painting behind the conversation.** It fills the window from a tall phone to a wide screen, centered on the lily, sharp at 2553 px. It is still, as a painting on a wall is.
 
 The terminal and editor extensions draw no themes, so there the mod does nothing.
 
@@ -34,7 +33,7 @@ Start a new session in the Claude desktop or mobile app and the pond appears. To
 
 ## The painting
 
-John La Farge, *Water Lily in Sunlight*, ca. 1883, watercolor. Smithsonian American Art Museum, Gift of John Gellatly, 1929.6.70. Public domain (CC0). A 2000 px copy (AVIF) travels inside the theme, so nothing is loaded from the network. No scripts, no data read or sent.
+John La Farge, *Water Lily in Sunlight*, ca. 1883, watercolor. Smithsonian American Art Museum, Gift of John Gellatly, 1929.6.70. Public domain (CC0). The full-resolution copy (`assets/painting.jpg`, under 1 MB) ships with the theme, so nothing is loaded from the network. No scripts, no data read or sent.
 
 ## License
 

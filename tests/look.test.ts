@@ -1,16 +1,10 @@
 import { expect, test } from 'claude-code/testing'
 
-import { problems } from '../hooks/look'
+import { LOOK, problems } from '../hooks/look'
 import { checkColors } from '../hooks/make-colors.js'
-import { SCENE } from '../hooks/scene'
 
-test('the scene fits the backdrop limit and runs no script', () => {
-  expect(SCENE.length).toBeLessThan(131072)
-  expect(SCENE.includes('<script')).toBe(false)
-  // The painting fills any box, embedded so the scene loads nothing from the network.
-  expect(SCENE.includes('preserveAspectRatio="xMidYMid slice"')).toBe(true)
-  expect(SCENE.includes('href="data:image/avif;base64,')).toBe(true)
-  expect(/href="https?:/.test(SCENE)).toBe(false)
+test('the backdrop is the painting file, within the still-image limits', () => {
+  expect(LOOK.backdrop).toEqual({ image: { source: 'assets/painting.jpg' } })
 })
 
 test('Desktop paints the colors, and every key is a design-system name', async ($, on) => {
@@ -21,8 +15,8 @@ test('Desktop paints the colors, and every key is a design-system name', async (
   })
   on('session.start', (_, e) => ({ cwd: e.cwd }))
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
-  const look = sent as { colors: Parameters<typeof checkColors>[0]; backdrop: { scene: string } }
-  expect(look.backdrop.scene).toBe('pond')
+  const look = sent as { colors: Parameters<typeof checkColors>[0]; backdrop: { image: { source: string } } }
+  expect(look.backdrop.image.source).toBe('assets/painting.jpg')
   // Contrast notes under the design system's own bar still paint (look.md); only a wrong name or mode paints nothing.
   const unpaintable = checkColors(look.colors).filter(line => /paints nothing|isn't a mode|is not a number|won't paint/.test(line))
   expect(unpaintable).toEqual([])
@@ -32,7 +26,7 @@ test('no contrast line stops Desktop from painting', () => {
   expect(problems.filter(p => p.startsWith("Desktop won't paint"))).toEqual([])
 })
 
-test('draws only its own scene, and /plain-pond takes the look off', async ($, on) => {
+test('/plain-pond takes the look off', async ($, on) => {
   let cleared = false
   on('theme.set', () => ({ value: { isDrawn: true as const, requestId: 't' } }))
   on('theme.clear', () => {
@@ -43,7 +37,7 @@ test('draws only its own scene, and /plain-pond takes the look off', async ($, o
   on('session.start', (_, e) => ({ cwd: e.cwd }))
   on('command.run', () => ({ text: '' }))
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
-  const result = await $.command.run({ command: 'plain-pond', args: '' })
+  const result = await $.command.run({ command: 'plain-pond', args: '', origin: { kind: 'composer' }, presentation: { isFullscreen: false, columns: 80 } })
   expect(cleared).toBe(true)
   expect(result.text).toContain('Lily Pond is off')
 })
