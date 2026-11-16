@@ -34,7 +34,7 @@ Start a new session in the Claude desktop or mobile app and the pond appears. To
 
 ## The painting
 
-John La Farge, *Water Lily in Sunlight*, ca. 1883, watercolor. Smithsonian American Art Museum, gift of John Gellatly (1929.6.70). Public domain (CC0). An 800 px copy travels inside the theme, so nothing is loaded from the network. No scripts, no data read or sent.
+John La Farge, *Water Lily in Sunlight*, ca. 1883, watercolor. Smithsonian American Art Museum, Gift of John Gellatly, 1929.6.70. Public domain (CC0). A 2000 px copy (AVIF) travels inside the theme, so nothing is loaded from the network. No scripts, no data read or sent.
 
 ## License
 

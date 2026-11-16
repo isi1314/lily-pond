@@ -9,7 +9,7 @@ test('the scene fits the backdrop limit and runs no script', () => {
   expect(SCENE.includes('<script')).toBe(false)
   // The painting fills any box, embedded so the scene loads nothing from the network.
   expect(SCENE.includes('preserveAspectRatio="xMidYMid slice"')).toBe(true)
-  expect(SCENE.includes('href="data:image/jpeg;base64,')).toBe(true)
+  expect(SCENE.includes('href="data:image/avif;base64,')).toBe(true)
   expect(/href="https?:/.test(SCENE)).toBe(false)
 })
 
